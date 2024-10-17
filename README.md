@@ -1,69 +1,47 @@
 # react-eimzo-solijonovmuhammadali
 
-Bu paket React TypeScript yordamida CRUD (Create, Read, Update, Delete) amallarini bajaruvchi hook'ni taqdim etadi. Ushbu hook umumiy ma'lumotlarni olish, qo'shish, yangilash va o'chirishni osonlashtiradi.
+Ushbu hook `e-imzo` kutubxonasidan foydalanish uchun mo'ljallangan. Hook yordamida foydalanuvchi sertifikatlari ro'yxatini olish va PKCS7 formatidagi raqamli imzoni yaratish imkoniyati mavjud.
 
 ## O'rnatish
 
-Loyihangizda ushbu paketdan foydalanish uchun quyidagi buyruq orqali o'rnating:
+Avvaliga `EIMZO` kutubxonasini o'rnatishingiz kerak bo'ladi. Bu faylni loyihangizga yuklab oling va kerakli joyga qo'ying.
 
-```bash
-npm install react-eimzo-solijonovmuhammadali
+Keyin `useEImzo` hookini import qilib, foydalanishingiz mumkin:
+
+```typescript
+import { useEImzo } from './hooks/useEImzo'
 ```
 
-# CRUD Misoli TypeScriptda
+## Foydalanish
 
-Quyida TypeScript yordamida `useCrud` hook'ini qanday ishlatishni ko'rsatib beruvchi misol keltirilgan.
+# Sertifikatlarni olish
 
-```tsx
-import React, { useEffect } from 'react';
-import { useCrud, CRUDOptions } from 'react-eimzo-solijonovmuhammadali';
+`useEImzo` hookini ishlatganingizdan so'ng, sertifikatlar avtomatik ravishda yuklanadi va `certificates` o'zgaruvchisida saqlanadi.
 
-interface Item {
-  id: string;
-  name: string;
-}
-
-const App: React.FC = () => {
-  const { items, loading, error, create, update, remove } = useCrud<Item>({
-    fetchItems: async () => {
-      return [
-        { id: '1', name: 'Item 1' },
-        { id: '2', name: 'Item 2' }
-      ];
-    },
-    createItem: async (item: Item) => {
-      console.log('Yangi element qo\'shildi:', item);
-    },
-    updateItem: async (id: string, item: Item) => {
-      console.log(`Element yangilandi ${id}:`, item);
-    },
-    deleteItem: async (id: string) => {
-      console.log(`Element o'chirildi ${id}`);
-    }
-  });
-
-  useEffect(() => {
-    if (error) {
-      console.error('Xato:', error);
-    }
-  }, [error]);
-
-  return (
-    <div>
-      <h1>CRUD Misol TypeScriptda</h1>
-      {loading ? <p>Yuklanmoqda...</p> : items.map(item => <p key={item.id}>{item.name}</p>)}
-    </div>
-  );
-};
-
-export default App;
-
-
-### Nima yozilganini tushuntirish:
-
-1. **O'rnatish bo'limi**: Qanday qilib paketni `npm` yoki `yarn` orqali o'rnatish kerakligi tushuntiriladi.
-2. **Foydalanish bo'limi**: JavaScript va TypeScript yordamida CRUD hook'ni qanday ishlatish bo'yicha misollar beriladi.
-3. **CRUD Hook API**: Hook'da mavjud funksiyalar va ularning vazifalari qisqacha tushuntiriladi.
-
-Bu fayl paketni boshqa foydalanuvchilarga tushunish va ishlatishni osonlashtiradi. O'z loyihangiz uchun uni to'ldirishingiz mumkin.
 ```
+const { certificates } = useEImzo()
+```
+
+# PKCS7 yaratish
+
+Ma'lum bir sertifikat uchun PKCS7 raqamli imzosini yaratish uchun `createPkcs7` funksiyasidan foydalanishingiz mumkin
+
+```
+const { createPkcs7 } = useEImzo()
+
+const sertifikat = certificates[0] // birinchi sertifikatni olish misoli
+createPkcs7(sertifikat)
+
+```
+
+PKCS7 formatidagi imzo `pkcs7` o'zgaruvchisida saqlanadi:
+
+```
+const { pkcs7 } = useEImzo()
+console.log(pkcs7)
+```
+
+# Qanday muammolar yuzaga kelishi mumkin?
+
+Agar E-imzo dasturi ishga tushmagan bo'lsa yoki noto'g'ri konfiguratsiya qilingan bo'lsa, konsolda "E-imzo ishga tushuring!" degan xatolik paydo bo'ladi.
+Agar PKCS7 yaratishda xatolik yuzaga kelsa, "PKCS7 qilishda xotolik yuzberdi" xabari konsolda paydo bo'ladi.
