@@ -10,7 +10,7 @@ export default {
   input: ['src/index.ts', 'Eimzo.js', 'e-imzo.js', 'e-imzo-client.js'],
   output: [
     {
-      dir: pkg.main,
+      dir: 'dist',
       format: 'esm',
       sourcemap: true
     }

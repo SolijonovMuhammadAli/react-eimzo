@@ -3,15 +3,17 @@
   "compilerOptions": {
     "target": "ES5",
     "module": "ESNext",
-    "jsx": "react",
     "strict": true,
-    "declaration": true,
     "outDir": "dist",
     "allowJs": true,
     "esModuleInterop": true,
     "lib": ["ES2015", "DOM"],
     "importHelpers": true, // Yordamchi funksiyalarni tslib orqali import qilish
-    "checkJs": false
+    "checkJs": false,
+    "declaration": true, // Deklaratsiya yaratish
+    "declarationDir": "dist", // Deklaratsiya fayllari dist papkasiga
+    "moduleResolution": "node",
+    "skipLibCheck": true
   },
   "include": ["src/**/*"]
 }
