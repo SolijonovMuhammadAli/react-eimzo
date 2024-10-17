@@ -12,9 +12,9 @@ Keyin `useEImzo` hookini import qilib, foydalanishingiz mumkin:
 import { useEImzo } from './hooks/useEImzo'
 ```
 
-## Foydalanish
+# Foydalanish
 
-# Sertifikatlarni olish
+## Sertifikatlarni olish
 
 `useEImzo` hookini ishlatganingizdan so'ng, sertifikatlar avtomatik ravishda yuklanadi va `certificates` o'zgaruvchisida saqlanadi.
 
@@ -22,7 +22,7 @@ import { useEImzo } from './hooks/useEImzo'
 const { certificates } = useEImzo()
 ```
 
-# PKCS7 yaratish
+## PKCS7 yaratish
 
 Ma'lum bir sertifikat uchun PKCS7 raqamli imzosini yaratish uchun `createPkcs7` funksiyasidan foydalanishingiz mumkin
 
@@ -41,7 +41,8 @@ const { pkcs7 } = useEImzo()
 console.log(pkcs7)
 ```
 
-# Qanday muammolar yuzaga kelishi mumkin?
+## Qanday muammolar yuzaga kelishi mumkin?
 
 Agar E-imzo dasturi ishga tushmagan bo'lsa yoki noto'g'ri konfiguratsiya qilingan bo'lsa, konsolda "E-imzo ishga tushuring!" degan xatolik paydo bo'ladi.
+
 Agar PKCS7 yaratishda xatolik yuzaga kelsa, "PKCS7 qilishda xotolik yuzberdi" xabari konsolda paydo bo'ladi.
