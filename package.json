@@ -1,12 +1,13 @@
 {
   "name": "react-eimzo-solijonovmuhammadali",
-  "version": "3.0.3",
+  "version": "1.0.8",
   "description": "React va TypeScript ilovalarida raqamli imzolar bilan ishlash uchun oddiy paket.",
-  "main": "dist/index.js",
+  "main": "dist",
   "module": "dist/index.esm.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src/e-imzo"
   ],
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs"

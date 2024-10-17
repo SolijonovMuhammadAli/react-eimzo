@@ -7,15 +7,10 @@ import babel from '@rollup/plugin-babel'
 import pkg from './package.json'
 
 export default {
-  input: 'src/index.ts',
+  input: ['src/index.ts', 'Eimzo.js', 'e-imzo.js', 'e-imzo-client.js'],
   output: [
     {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true
-    },
-    {
-      file: pkg.module,
+      dir: pkg.main,
       format: 'esm',
       sourcemap: true
     }
@@ -28,7 +23,9 @@ export default {
       useTsconfigDeclarationDir: true,
       tsconfigOverride: {
         compilerOptions: {
-          importHelpers: true // tslib helper-larini ishlatish uchun
+          importHelpers: true,
+          declaration: true,
+          declarationDir: 'dist'
         }
       }
     }),
