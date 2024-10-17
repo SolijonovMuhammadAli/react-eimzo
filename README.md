@@ -9,7 +9,7 @@ Avvaliga `EIMZO` kutubxonasini o'rnatishingiz kerak bo'ladi. Bu faylni loyihangi
 Keyin `useEImzo` hookini import qilib, foydalanishingiz mumkin:
 
 ```typescript
-import { useEImzo } from './hooks/useEImzo'
+import { useEImzo } from 'react-eimzo-solijonovmuhammadali'
 ```
 
 # Foydalanish
