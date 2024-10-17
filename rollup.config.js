@@ -8,6 +8,7 @@ module.exports = {
     dir: 'dist',
     format: 'cjs'
   },
+
   plugins: [resolve(), commonjs(), typescript()],
   external: ['react']
 }
