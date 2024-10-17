@@ -1,7 +1,7 @@
 {
   "name": "react-eimzo-solijonovmuhammadali",
-  "version": "3.0.1",
-  "description": "",
+  "version": "3.0.2",
+  "description": "React va TypeScript ilovalarida raqamli imzolar bilan ishlash uchun oddiy paket.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
@@ -11,6 +11,7 @@
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs"
   },
+  "homepage": "https://github.com/SolijonovMuhammadAli/react-eimzo.git",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SolijonovMuhammadAli/react-eimzo.git"
@@ -20,10 +21,16 @@
     "react",
     "eimzo",
     "react-eimzo",
-    "solijonovmuhammadali"
+    "solijonovmuhammadali",
+    "e-imzo",
+    "digital-signature",
+    "react",
+    "typescript",
+    "auth",
+    "security"
   ],
   "author": "Solijonov Muhammad Ali",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@types/react": "^18.3.11",
     "react": "^18.3.1",
