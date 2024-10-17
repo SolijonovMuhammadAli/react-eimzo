@@ -1,4 +1,3 @@
-// src/hooks/useToggle.ts
 import { useState } from 'react'
 
 export function useToggle(initialValue: boolean = false) {
