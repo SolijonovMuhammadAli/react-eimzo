@@ -1,6 +1,6 @@
 // src/hooks/useEImzo.ts
 import { useEffect, useState } from 'react'
-import EIMZO from '../Eimzo.js'
+import EIMZO from './Eimzo.js'
 
 export function useEImzo() {
   const EIMZOClient = new EIMZO()

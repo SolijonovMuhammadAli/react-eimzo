@@ -7,18 +7,14 @@ export default defineConfig({
   plugins: [react(), dts({ insertTypesEntry: true })],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'), // Asosiy kirish fayli
+      entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'ReactEimzoSolijonovmuhammadali',
-      formats: ['es', 'cjs'], // ESM va CJS formatlar
-      fileName: (format) => `react-eimzo-solijonovmuhammadali.${format}.js` // Paketning fayl nomi
+      formats: ['es', 'cjs'],
+      fileName: (format) => `index.${format}.js`
     },
     rollupOptions: {
-      input: {
-        Eimzo: path.resolve(__dirname, './Eimzo.js'),
-        eimzo: path.resolve(__dirname, './e-imzo.js'),
-        eimzoClient: path.resolve(__dirname, './e-imzo-client.js')
-      },
-      external: ['react', 'react-dom'], // React va ReactDOM tashqi modullar
+      input: ['src/index.ts', 'src/Eimzo.js', 'src/e-imzo.js', 'src/e-imzo-client.js'],
+      external: ['react', 'react-dom'],
       output: {
         globals: {
           react: 'React',
