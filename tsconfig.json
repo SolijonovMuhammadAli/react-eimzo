@@ -13,7 +13,8 @@
     "declaration": true, // Deklaratsiya yaratish
     "declarationDir": "dist", // Deklaratsiya fayllari dist papkasiga
     "moduleResolution": "node",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"]
 }

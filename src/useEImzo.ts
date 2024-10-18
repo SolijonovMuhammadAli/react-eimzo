@@ -1,13 +1,31 @@
-// src/hooks/useEImzo.ts
 import { useEffect, useState } from 'react'
 import EIMZO from './Eimzo.js'
-import './e-imzo.js'
+// @ts-ignore
+import eImzoScript from './e-imzo.js?raw'
 
 export function useEImzo() {
   const EIMZOClient = new EIMZO()
 
+  const [eimzoLoaded, setEimzoLoaded] = useState(false)
   const [certificates, setCertificates] = useState<any>([])
   const [pkcs7, setPkcs7] = useState('')
+
+  useEffect(() => {
+    // e-imzo.js faylini ishga tushiramiz
+    const scriptContent = eImzoScript
+    const script = document.createElement('script')
+    script.id = 'eimzo-script'
+    script.type = 'text/javascript'
+    script.text = scriptContent
+    document.body.appendChild(script)
+
+    setEimzoLoaded(true)
+
+    return () => {
+      // Tozalash: Skriptni olib tashlaymiz
+      document.body.removeChild(script)
+    }
+  }, [])
 
   const listAllKey = () => {
     EIMZOClient.install()
@@ -28,8 +46,10 @@ export function useEImzo() {
   }
 
   useEffect(() => {
-    listAllKey()
-  }, [])
+    if (eimzoLoaded) {
+      listAllKey()
+    }
+  }, [eimzoLoaded])
 
   return { EIMZOClient, certificates, createPkcs7, pkcs7 }
 }

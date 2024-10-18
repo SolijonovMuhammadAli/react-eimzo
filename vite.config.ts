@@ -4,12 +4,9 @@ import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
 import path from 'path'
 
-// Node.js modullari uchun polyfill plaginlarini import qilamiz
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
-import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
-
 export default defineConfig({
   plugins: [react(), dts({ insertTypesEntry: true })],
+  assetsInclude: ['**/e-imzo.js'], // e-imzo.js faylini assets sifatida qo'shdik
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
@@ -24,15 +21,7 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM'
         }
-      },
-      plugins: [NodeGlobalsPolyfillPlugin({ buffer: true }), NodeModulesPolyfillPlugin()]
-    }
-  },
-  resolve: { alias: { buffer: 'buffer' } },
-  optimizeDeps: {
-    esbuildOptions: {
-      define: { global: 'globalThis' },
-      plugins: [NodeGlobalsPolyfillPlugin({ buffer: true }), NodeModulesPolyfillPlugin()]
+      }
     }
   }
 })

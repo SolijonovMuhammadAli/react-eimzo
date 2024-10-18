@@ -1,6 +1,6 @@
 {
   "name": "react-eimzo-solijonovmuhammadali",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "React va TypeScript ilovalarida raqamli imzolar bilan ishlash uchun oddiy paket.",
   "main": "dist/react-eimzo-solijonovmuhammadali.cjs.js",
   "module": "dist/react-eimzo-solijonovmuhammadali.esm.js",
@@ -43,6 +43,7 @@
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@rollup/plugin-inject": "^5.0.5",
     "@types/react": "^18.3.3",
     "@vitejs/plugin-react": "^1.3.2",
     "buffer": "^6.0.3",
