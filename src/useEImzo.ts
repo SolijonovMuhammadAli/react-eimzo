@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import EIMZO from './Eimzo.js'
 
+require('./e-imzo.js')
+
 export function useEImzo() {
   const EIMZOClient = new EIMZO()
 
@@ -13,9 +15,9 @@ export function useEImzo() {
       .then(() => {
         EIMZOClient.listAllUserKeys()
           .then((res) => setCertificates(res))
-          .catch(() => console.error('E-imzo ishga tushuring!'))
+          .catch(() => console.error('E-imzo ishga tushuring (listAllUserKeys)!'))
       })
-      .catch(() => console.error('E-imzo ishga tushuring!'))
+      .catch(() => console.error('E-imzo ishga tushuring (install)!'))
   }
 
   const createPkcs7 = (item: any) => {

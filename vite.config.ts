@@ -10,10 +10,9 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'ReactEimzoSolijonovmuhammadali',
       formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format}.js`
+      fileName: (format) => `react-eimzo-solijonovmuhammadali.${format === 'es' ? 'esm' : format}.js`
     },
     rollupOptions: {
-      input: ['src/index.ts', 'src/Eimzo.js', 'src/e-imzo.js', 'src/e-imzo-client.js'],
       external: ['react', 'react-dom'],
       output: {
         globals: {
