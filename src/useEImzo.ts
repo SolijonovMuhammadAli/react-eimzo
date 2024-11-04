@@ -17,13 +17,19 @@ export function useEImzo() {
     script.id = 'eimzo-script'
     script.type = 'text/javascript'
     script.text = scriptContent
-    document.body.appendChild(script)
 
-    setEimzoLoaded(true)
+    script.onload = () => {
+      setEimzoLoaded(true)
+    }
+
+    script.onerror = () => {
+      console.error('E-imzo skriptini yuklashda xatolik yuz berdi')
+    }
+
+    document.head.appendChild(script)
 
     return () => {
-      // Tozalash: Skriptni olib tashlaymiz
-      document.body.removeChild(script)
+      document.head.removeChild(script)
     }
   }, [])
 

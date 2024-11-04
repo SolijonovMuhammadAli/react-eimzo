@@ -14,6 +14,16 @@ import { useEImzo } from 'react-eimzo-solijonovmuhammadali'
 
 # Foydalanish
 
+## Qaytarilgan qiymatlar
+
+`useEImzo` hooki quyidagi xususiyatlarni o'z ichiga olgan ob'ektni qaytaradi:
+
+- **Dinamik Skript Yuklash:** E-IMZO skriptini avtomatik ravishda dokument head qismiga yuklaydi.
+- **Sertifikatlarni Boshqarish:** Foydalanuvchi sertifikatlarini olish va boshqarish.
+- **PKCS#7 Imzo Yaratish:** PKCS#7 imzolarini yaratishni osonlashtiradi.
+- **Xatoliklarni Boshqarish:** Skript yuklanishi va E-IMZO operatsiyalari uchun asosiy xatoliklarni boshqarish.
+- **Tozalash:** Dinamik qo'shilgan skript komponent o'chirilganda olib tashlanadi.
+
 ## Sertifikatlarni olish
 
 `useEImzo` hookini ishlatganingizdan so'ng, sertifikatlar avtomatik ravishda yuklanadi va `certificates` o'zgaruvchisida saqlanadi.
