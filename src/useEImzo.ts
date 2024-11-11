@@ -17,16 +17,13 @@ export function useEImzo() {
     script.id = 'eimzo-script'
     script.type = 'text/javascript'
     script.text = scriptContent
+    document.head.appendChild(script)
 
-    script.onload = () => {
-      setEimzoLoaded(true)
-    }
+    setEimzoLoaded(true)
 
     script.onerror = () => {
       console.error('E-imzo skriptini yuklashda xatolik yuz berdi')
     }
-
-    document.head.appendChild(script)
 
     return () => {
       document.head.removeChild(script)
@@ -34,8 +31,10 @@ export function useEImzo() {
   }, [])
 
   const listAllKey = () => {
+    console.log('RUNING!!')
     EIMZOClient.install()
       .then(() => {
+        console.log('install RUNING!!')
         EIMZOClient.listAllUserKeys()
           .then((res) => setCertificates(res))
           .catch(() => console.error('E-imzo ishga tushuring (listAllUserKeys)!'))
